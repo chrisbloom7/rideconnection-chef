@@ -1,9 +1,7 @@
+.bundle/*
 .vagrant
 /cookbooks
 /tmp
-
-# Bundler
 bin/*
-.bundle/*
-# .kitchen/
-# .kitchen.local.yml
+/cookbooks/
+/tmp/librarian/
