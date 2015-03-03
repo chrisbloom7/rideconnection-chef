@@ -74,12 +74,12 @@
   "passenger": {
     "max_pool_size": "2",
     "version": "4.0.53",
-    "ruby_bin": "/usr/local/rvm/wrappers/ruby-2.0.0@global/ruby"
+    "ruby_bin": "/usr/local/rvm/rubies/ruby-2.0.0-p598/bin/ruby"
   },
 
   "rvm": {
     "root_path": "/usr/local/rvm",
-    "default_ruby": "ruby-2.0.0",
+    "default_ruby": "ruby-2.0.0-p598",
     "global_gems": [{"name": "bundler"}],
     "rvmrc": {
       "rvm_project_rvmrc": 1,
