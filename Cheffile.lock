@@ -1,11 +1,9 @@
 SITE
   remote: https://supermarket.getchef.com/api/v1
   specs:
-    apache2 (1.11.0)
-      freebsd (>= 0.0.0)
+    apache2 (3.0.1)
       iptables (>= 0.0.0)
       logrotate (>= 0.0.0)
-      pacman (>= 0.0.0)
     apt (2.6.1)
     apt-upgrade-once (0.1.0)
     apticron (0.2.0)
@@ -16,7 +14,6 @@ SITE
     database (4.0.3)
       postgresql (>= 1.0.0)
     dmg (2.2.2)
-    freebsd (0.3.0)
     git (4.1.0)
       build-essential (>= 0.0.0)
       dmg (>= 0.0.0)
@@ -30,10 +27,6 @@ SITE
     logrotate (1.8.0)
     openssl (4.0.0)
       chef-sugar (>= 0.0.0)
-    pacman (1.1.1)
-    passenger_apache2 (2.2.3)
-      apache2 (~> 1.0)
-      build-essential (>= 0.0.0)
     postgis (0.3.0)
       apt (>= 0.0.0)
       postgresql (>= 0.0.0)
@@ -55,8 +48,14 @@ SITE
     yum-epel (0.6.0)
       yum (~> 3.0)
 
+PATH
+  remote: vendor-cookbooks/jamesotron/cookbooks/passenger
+  specs:
+    passenger (0.0.2)
+      logrotate (>= 0)
+
 DEPENDENCIES
-  apache2 (~> 1.0)
+  apache2 (~> 3.0.1)
   apt (~> 2.6.1)
   apt-upgrade-once (~> 0.1.0)
   apticron (~> 0.2.0)
@@ -66,7 +65,7 @@ DEPENDENCIES
   imagemagick (~> 0.2.3)
   locale (~> 1.0.2)
   logrotate (~> 1.8.0)
-  passenger_apache2 (~> 2.2.3)
+  passenger (>= 0)
   postgis (~> 0.3.0)
   postgresql (~> 3.4.14)
   rvm (~> 0.9.2)

@@ -68,13 +68,14 @@
   
   "apache": {
     "listen_ports": ["80", "443"],
-    "default_site_enabled": false
+    "default_site_enabled": false,
+    "contact": "admin@rideconnection.org"
   },
   
   "passenger": {
-    "max_pool_size": "2",
-    "version": "4.0.53",
-    "ruby_bin": "/usr/local/rvm/rubies/ruby-2.0.0-p598/bin/ruby"
+    "conf": {
+      "max_pool_size": "2"
+    }
   },
 
   "rvm": {
