@@ -1,6 +1,7 @@
 name "base_server"
 description "Prepares a Ubuntu server for use with RideConnection apps"
 run_list( 
+  "recipe[timezone-ii]",
   "recipe[locale]",
   "recipe[apt]",
   "recipe[apt-upgrade-once]",

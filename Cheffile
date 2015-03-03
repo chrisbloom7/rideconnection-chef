@@ -8,6 +8,7 @@ cookbook 'locale',            '~> 1.0.2'
 cookbook 'apt-upgrade-once',  '~> 0.1.0'
 cookbook 'apt',               '~> 2.6.1'
 cookbook 'build-essential',   '~> 2.1.3'
+cookbook 'timezone-ii',       '~> 0.2.0'
 
 # For all RideConnection nodes
 cookbook 'logrotate',         '~> 1.8.0'
