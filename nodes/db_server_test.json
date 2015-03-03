@@ -1,0 +1,94 @@
+{
+  "rails_env": "staging",
+
+  "default_attributes": {
+    "build_essential": {
+      "compiletime": "true"
+    },
+  },
+  
+  "apps": {
+    "ridepilot": {
+      "database": {
+        "name_prefix": "ridepilot",
+        "username": "ridepilot",
+        "password": "ridepilot",
+        "template": "postgis",
+      }
+    },
+    "wiseguide": {
+      "database": {
+        "name_prefix": "wiseguide",
+        "username": "wiseguide",
+        "password": "wiseguide",
+      }
+    },
+    "waverly": {
+      "database": {
+        "name_prefix": "waverly",
+        "username": "waverly",
+        "password": "waverly",
+      }
+    },
+    "lowdown": {
+      "database": {
+        "name_prefix": "lowdown",
+        "username": "lowdown",
+        "password": "password",
+      }
+    },
+  }
+
+  "apticron": {
+    "email": "admin@rideconnection.org",
+  },
+  
+  "postgresql": {
+    "pg_hba": [
+      {
+        "comment": "Allow MD5 logins from the local connections",
+        "type":    "local", 
+        "db":      "all", 
+        "user":    "all", 
+        "addr":    "", 
+        "method":  "md5"
+      },
+      {
+        "comment": "Allow MD5 logins from local IPv4 connections",
+        "type":    "host", 
+        "db":      "all", 
+        "user":    "all", 
+        "addr":    "127.0.0.1/32", 
+        "method":  "md5"
+      },
+      {
+        "comment": "Allow MD5 logins from local IPv6 connections",
+        "type":    "host", 
+        "db":      "all", 
+        "user":    "all", 
+        "addr":    "::1/128", 
+        "method":  "md5"
+      }
+      {
+        "comment": "Allow MD5 logins from app server IPv4 connections",
+        "type":    "host", 
+        "db":      "all", 
+        "user":    "all", 
+        "addr":    "33.33.33.10/32",
+        "method":  "md5"
+      }
+    ],
+    "config": { "listen_addresses": "localhost,33.33.33.11" },
+    "config_pgtune": { "db_type": "web" },
+    "contrib": {
+      "extensions": ["fuzzystrmatch"]
+    },
+    "password": { "postgres": "d41d8cd98f00b204e9800998ecf8427e" }
+  },
+  "postgis": { "template_name": "template_postgis" },
+
+  "run_list": [
+    "role[base_server]",
+    "role[db_server]",
+  ]
+}

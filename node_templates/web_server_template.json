@@ -1,0 +1,95 @@
+{
+  "deployment": {
+    "name": "deployer",
+    "password": "$1$8ST6rt70$4rBGWVgXKnDfpP915tzgr/"
+  },
+
+  "domain": "apps2.rideconnection.org",
+
+  "rails_env": "production",
+
+  "ssl": {
+    "cert": "apps2.rideconnection.org.crt",
+    "cert_key": "apps2.rideconnection.org.pem",    
+    "chain_file": "gd_bundle.crt",    
+  },
+  
+  "apps": {
+    "ridepilot": {
+      "path": "ridepilot",
+      "database": {
+        "prefix": "ridepilot",
+        "username": "ridepilot",
+        "password": "ridepilot",
+        "adapter": "postgis",
+        "template": "postgis",
+      }
+    },
+    "wiseguide": {
+      "path": "wiseguide",
+      "database": {
+        "prefix": "wiseguide",
+        "username": "wiseguide",
+        "password": "wiseguide",
+        "adapter": "postgresql",
+      }
+    },
+    "waverly": {
+      "path": "waverly",
+      "database": {
+        "prefix": "waverly",
+        "username": "waverly",
+        "password": "waverly",
+        "adapter": "postgresql",
+      }
+    },
+    "lowdown": {
+      "path": "services",
+      "database": {
+        "prefix": "lowdown",
+        "username": "lowdown",
+        "password": "password",
+        "adapter": "postgresql",
+      }
+    },
+  }
+  
+  "default_attributes": {
+    "build_essential": {
+      "compiletime": "true"
+    }
+  },
+  
+  "apticron": {
+    "email": "admin@rideconnection.org",
+  },
+  
+  "apache": {
+    "listen_ports": ["80", "443"],
+    "default_site_enabled": false
+  },
+  
+  "passenger": {
+    "max_pool_size": "2",
+    "version": "4.0.53",
+    "ruby_bin": "/usr/local/rvm/wrappers/ruby-2.0.0@global/ruby"
+  },
+
+  "rvm": {
+    "root_path": "/usr/local/rvm",
+    "default_ruby": "ruby-2.0.0",
+    "global_gems": [{"name": "bundler"}],
+    "rvmrc": {
+      "rvm_project_rvmrc": 1,
+      "rvm_gemset_create_on_use_flag": 1,
+      "rvm_pretty_print_flag": 1,
+      "rvm_trust_rvmrcs_flag": 1
+    },
+    "upgrade": "stable",
+  },
+  
+  "run_list": [
+    "role[base_server]",
+    "role[web_server]",
+  ]
+}

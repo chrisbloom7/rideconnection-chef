@@ -1,0 +1,9 @@
+<VirtualHost *:80>
+  ServerName <%= node[:domain] %>
+
+	DocumentRoot /var/www
+	<Directory /var/www/>
+		Order allow,deny
+		allow from all
+	</Directory>
+</VirtualHost>

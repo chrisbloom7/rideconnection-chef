@@ -1,0 +1,23 @@
+<VirtualHost *:443>
+  ServerName <%= node[:domain] %>
+
+	SSLEngine On
+
+	SSLCertificateFile /etc/apache2/certs/<%= node[:ssl][:cert] %>
+	SSLCertificateKeyFile /etc/apache2/certs/<%= node[:ssl][:cert_key] %>
+	SSLCertificateChainFile /etc/apache2/certs/<%= node[:ssl][:chain_file] %>
+
+	DocumentRoot /var/www
+	<Directory /var/www/>
+		Order allow,deny
+		allow from all
+	</Directory>
+	
+  <% @apps.each do |app_name, app_attrs| %>
+  	RailsBaseURI /<%= app_attrs[:path] %>
+  	<Directory /var/www/<%= app_attrs[:path] %>>
+  		Options -MultiViews
+      PassengerRuby <%= node[:rvm][:root_path] %>/wrappers/ruby-<%= app_attrs[:ruby_version] %>@global/ruby
+  	</Directory>
+  <% end %>
+</VirtualHost>
