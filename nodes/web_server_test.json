@@ -93,6 +93,7 @@
   "tz": "America/Los_Angeles",
 
   "run_list": [
-    "role[base_server]"
+    "role[base_server]",
+    "role[web_server]"
   ]
 }
