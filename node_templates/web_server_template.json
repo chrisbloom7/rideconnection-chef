@@ -6,60 +6,43 @@
 
   "domain": "apps2.rideconnection.org",
 
+  "db_server": "x.x.x.x",
+
   "rails_env": "production",
 
   "ssl": {
     "cert": "apps2.rideconnection.org.crt",
     "cert_key": "apps2.rideconnection.org.pem",    
-    "chain_file": "gd_bundle.crt",    
+    "chain_file": "gd_bundle.crt"
   },
   
   "apps": {
-    "ridepilot": {
-      "path": "ridepilot",
+    "myapp": {
+      "path": "myapp",
       "database": {
-        "prefix": "ridepilot",
-        "username": "ridepilot",
-        "password": "ridepilot",
-        "adapter": "postgis",
-        "template": "postgis",
-      }
-    },
-    "wiseguide": {
-      "path": "wiseguide",
-      "database": {
-        "prefix": "wiseguide",
-        "username": "wiseguide",
-        "password": "wiseguide",
-        "adapter": "postgresql",
-      }
-    },
-    "waverly": {
-      "path": "waverly",
-      "database": {
-        "prefix": "waverly",
-        "username": "waverly",
-        "password": "waverly",
-        "adapter": "postgresql",
-      }
-    },
-    "lowdown": {
-      "path": "services",
-      "database": {
-        "prefix": "lowdown",
-        "username": "lowdown",
+        "prefix": "myapp",
+        "username": "myapp",
         "password": "password",
-        "adapter": "postgresql",
+        "adapter": "postgis"
       }
     },
-  }
+    "my2ndapp": {
+      "path": "my-2nd-app",
+      "database": {
+        "prefix": "my2ndapp",
+        "username": "my2ndapp",
+        "password": "password",
+        "adapter": "my2ndapp"
+      }
+    }
+  },
   
   "build_essential": {
-    "compiletime": "true"
+    "compile_time": "true"
   },
   
   "apticron": {
-    "email": "admin@rideconnection.org",
+    "email": "admin@rideconnection.org"
   },
   
   "apache": {
@@ -70,7 +53,7 @@
   
   "rvm": {
     "root_path": "/usr/local/rvm",
-    "default_ruby": "ruby-2.0.0-p598",
+    "default_ruby": "ruby-2.0.0",
     "global_gems": [{"name": "bundler"}],
     "rvmrc": {
       "rvm_project_rvmrc": 1,
@@ -78,13 +61,13 @@
       "rvm_pretty_print_flag": 1,
       "rvm_trust_rvmrcs_flag": 1
     },
-    "upgrade": "stable",
+    "upgrade": "stable"
   },
   
   "tz": "America/Los_Angeles",
-  
+
   "run_list": [
     "role[base_server]",
-    "role[web_server]",
+    "role[web_server]"
   ]
 }

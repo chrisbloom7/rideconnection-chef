@@ -1,8 +1,10 @@
 <%= @rails_env %>:
-  adapter:  <%= @adapter %>
+  adapter:  postgis
   database: <%= @database %>
   username: <%= @username %>
   password: <%= @password %>
   pool: 5
   timeout: 5000
   template: template_postgis
+  host: <%= @db_server %>
+  min_messages: WARNING

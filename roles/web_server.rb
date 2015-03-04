@@ -13,5 +13,5 @@ run_list(
   "recipe[rideconnection::swapoff]",
   "recipe[postgresql::ruby]",
   "recipe[imagemagick::rmagick]",
-  # "recipe[rideconnection::web]",
+  "recipe[rideconnection::web]",
 )

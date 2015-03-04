@@ -2,7 +2,7 @@
   "rails_env": "production",
 
   "build_essential": {
-    "compiletime": "true"
+    "compile_time": "true"
   },
   
   "apps": {

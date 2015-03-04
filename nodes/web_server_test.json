@@ -23,8 +23,7 @@
         "prefix": "ridepilot",
         "username": "ridepilot",
         "password": "ridepilot",
-        "adapter": "postgis",
-        "template": "postgis"
+        "adapter": "postgis"
       }
     },
     "wiseguide": {
@@ -57,7 +56,7 @@
   },
   
   "build_essential": {
-    "compiletime": "true"
+    "compile_time": "true"
   },
   
   "apticron": {
@@ -72,7 +71,7 @@
   
   "rvm": {
     "root_path": "/usr/local/rvm",
-    "default_ruby": "ruby-2.0.0-p598",
+    "default_ruby": "ruby-2.0.0",
     "global_gems": [{"name": "bundler"}],
     "rvmrc": {
       "rvm_project_rvmrc": 1,
