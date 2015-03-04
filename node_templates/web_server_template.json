@@ -70,12 +70,6 @@
     "contact": "admin@rideconnection.org"
   },
   
-  "passenger": {
-    "conf": {
-      "max_pool_size": "2"
-    }
-  },
-
   "rvm": {
     "root_path": "/usr/local/rvm",
     "default_ruby": "ruby-2.0.0-p598",
