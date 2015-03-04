@@ -69,7 +69,7 @@ end
 ## App folders
 node[:apps].each do |app_name, app_attrs|
   ### Application folder
-  directory "/home/#{node[:deployment][:name]}/rails/#{app_attrs[:app_path]}" do
+  directory "/home/#{node[:deployment][:name]}/rails/#{app_attrs[:path]}" do
     owner "deployer"
     group "deployer"
     mode "2755"
@@ -85,7 +85,7 @@ node[:apps].each do |app_name, app_attrs|
     "shared/config",
     "shared/log",
   ].each do |path_name|
-    directory "/home/#{node[:deployment][:name]}/rails/#{app_attrs[:app_path]}/#{path_name}" do
+    directory "/home/#{node[:deployment][:name]}/rails/#{app_attrs[:path]}/#{path_name}" do
       owner "deployer"
       group "deployer"
       mode "0755"
@@ -96,18 +96,18 @@ node[:apps].each do |app_name, app_attrs|
   ### Rotate logs
   logrotate_app app_name do
     enable    true
-    path      "/home/#{node[:deployment][:name]}/rails/#{app_attrs[:app_path]}/shared/log/*.log"
+    path      "/home/#{node[:deployment][:name]}/rails/#{app_attrs[:path]}/shared/log/*.log"
     frequency "daily"
     rotate    90
     options   ["missingok", "delaycompress", "notifempty"]
     sharedscripts true
     postrotate <<-EOF
-      touch /home/#{node[:deployment][:name]}/rails/#{app_attrs[:app_path]}/current/tmp/restart.txt
+      touch /home/#{node[:deployment][:name]}/rails/#{app_attrs[:path]}/current/tmp/restart.txt
     EOF
   end
   
   ### Database conf
-  template "/home/#{node[:deployment][:name]}/rails/#{app_attrs[:app_path]}/shared/config/database.yml" do
+  template "/home/#{node[:deployment][:name]}/rails/#{app_attrs[:path]}/shared/config/database.yml" do
     source "#{app_attrs[:database][:adapter]}.database.yml.erb"
     mode "0644"
     owner "deployer"
