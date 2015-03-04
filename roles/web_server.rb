@@ -11,8 +11,7 @@ run_list(
   "recipe[rideconnection::swapon]",
   "recipe[rvm_passenger::apache2]",
   "recipe[rideconnection::swapoff]",
-  # "recipe[postgresql::ruby]",
-  # "recipe[postgresql::client]",
-  # "recipe[imagemagick::rmagick]",
+  "recipe[postgresql::ruby]",
+  "recipe[imagemagick::rmagick]",
   # "recipe[rideconnection::web]",
 )

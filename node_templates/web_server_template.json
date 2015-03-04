@@ -54,10 +54,8 @@
     },
   }
   
-  "default_attributes": {
-    "build_essential": {
-      "compiletime": "true"
-    }
+  "build_essential": {
+    "compiletime": "true"
   },
   
   "apticron": {

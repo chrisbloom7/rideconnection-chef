@@ -8,3 +8,8 @@ package 'vim'
 package 'screen'
 package 'apt-file'
 package 'command-not-found'
+
+# For Imagemagick
+package 'make'
+package 'ruby-dev'
+package 'libmagickwand-dev'
